@@ -88,6 +88,39 @@ class TrabController
         $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3], $datos[4], $datos[5], $datos[6], $datos[7]));
         $this->db->conn->commit();
     }
+
+    public function getTrabajadoresPorProveedor($id_prov)
+    {
+        try {
+            $sql = "SELECT t.*, 
+                   p.nombre AS nombre_proveedor
+            FROM trabajadores t
+            LEFT JOIN proveedores p ON t.id_prov = p.id_prov
+            WHERE p.id_prov = ?";
+
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$id_prov]);
+            $fincas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            //Si se llama por AJAX, devuelve JSON
+            if (!empty($_GET['action']) && $_GET['action'] === 'listarFincasPorContratista') {
+                header('Content-Type: application/json');
+                echo json_encode($fincas);
+                exit;
+            }
+
+            //Si se llama desde PHP, simplemente retorna
+            return $fincas;
+        } catch (PDOException $e) {
+            if (!empty($_GET['action'])) {
+                header('Content-Type: application/json');
+                echo json_encode(["error" => $e->getMessage()]);
+                exit;
+            } else {
+                return [];
+            }
+        }
+    }
 }
 
 

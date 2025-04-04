@@ -51,7 +51,6 @@ body {
   display: flex;
   width: 100%;
 }
-
 .container_logotipo {
   display: flex;
   max-width: 250px;
@@ -77,9 +76,9 @@ body {
 
 .container_nav {
   display: flex;
-  justify-content: space-between;
-  width: 78%;
-  border-top: #ffffff solid 1px;
+  justify-content: center;
+  width: 50%;
+  gap: 100px;
 }
 /* Estilo del elemento nav */
 
@@ -103,7 +102,6 @@ nav a:hover {
   display: none;
 }
 #portada {
-  /* display: flex; */
   width: 100%;
   background-color: #d1cfcf;
 
@@ -404,7 +402,7 @@ input, select {
   align-items: center;
   background-color: #28784d;
   color: #ecf0f0;
-  padding: 30px 40px;
+  padding: 20px 40px;
   text-align: center;
   gap: 20px;
   flex-direction: column;

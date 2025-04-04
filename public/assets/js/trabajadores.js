@@ -53,19 +53,23 @@ function cargarTrabajadores() {
 // Eliminar trabajador
 function eliminarTrabajador(id) {
     if (confirm("¿Estás seguro de que deseas eliminar este trabajador?")) {
-        fetch(`/controllers/TrabController.php?action=eliminarTrabajador&id=${id}`, {
-            method: 'GET',
-        })
+        fetch(`/controllers/TrabController.php?action=eliminarTrabajador&id=${id}`)
         .then(response =>             
             response.json())           
-        .then(data => {
-            if (data.mensaje) {
-                alert(data.mensaje);
-                console.log("Trabajador eliminado correctamente. Actualizando la lista...");
-                cargarTrabajadores(); 
-            } else {
-                alert("Error al eliminar trabajador: " + data.error);
-            }
+        .then(data => {          
+                alert(data.mensaje || data.error);
+               
+                // Obtener tipo de usuario y id del HTML
+                const datosUsuario = document.getElementById('datosUsuario');
+                const tipo = datosUsuario.dataset.tipo;
+                const idProv = datosUsuario.dataset.idProv; 
+
+                if (tipo === 'proveedor') {
+                    cargar('#portada', `/views/vertrabajadores.php?id=${idProv}`);
+                } else {
+                    cargar('#portada', '/views/vertrabajadores.php');
+                }
+            
         })
         .catch(error => console.error("Error al eliminar trabajador:", error));
     }

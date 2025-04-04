@@ -9,10 +9,11 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $usuario = unserialize($_SESSION['usuario']);
+$nombre = $usuario['nombre'] ?? 'Contratista';
 
 if ($usuario['tipo'] !== 'contratista') {
-    echo "Acceso no autorizado.";
-    exit;
+  echo "Acceso no autorizado.";
+  exit;
 }
 
 $id_contratista = $usuario['id_cont'];
@@ -22,16 +23,13 @@ $redir = "cargar('#portada','/views/portada.php');";
 if (isset($_GET['opcion'])) {
   switch ($_GET['opcion']) {
     case 1:
-        $redir = "cargar('#portada','/views/verfincas.php?id=$id_contratista');";
+      $redir = "cargar('#portada','/views/verfincas.php?id=$id_contratista');";
       break;
     case 2:
-        $redir = "cargar('#portada','/views/verproyectos.php?id=$id_contratista');";
+      $redir = "cargar('#portada','/views/verproyectos.php?id=$id_contratista');";
       break;
     case 3:
-        $redir = "cargar('#portada','/views/vertrabajadores.php?id=$id_contratista');";
-      break;
-    case 4:
-        $redir = "cargar('#portada','/views/verproveedores.php');";
+      $redir = "cargar('#portada','/views/verproveedores.php');";
       break;
     default:
       $redir = "cargar('#portada','/views/portada.php');";
@@ -48,7 +46,7 @@ if (isset($_GET['opcion'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="plantilla HTML" />
-  <title>Aplicación Agrodoc</title>
+  <title>Plataforma Agrodoc</title>
 
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -56,6 +54,7 @@ if (isset($_GET['opcion'])) {
     crossorigin="" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/estilos_app_tv.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/estilos_app_contratista.css">
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -64,6 +63,7 @@ if (isset($_GET['opcion'])) {
 </head>
 
 <body>
+<div id="userMeta" data-id-cont="<?= $usuario['id_cont'] ?>"></div>
   <div id="principal">
     <!--Cabecera-->
     <header id="principal_header" role="banner">
@@ -72,9 +72,33 @@ if (isset($_GET['opcion'])) {
           <img src="/assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
         </a>
       </div>
+      <div class="usuario">
+        <span><?php echo $nombre; ?></span>
+        <div class="loging">
+          <a href="/app/logout"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+        </div>
     </header>
+
     <div id="barra"></div>
     <div id="portada"></div>
+  
+<!-- Botón flotante de chat -->
+<div class="chat-float-btn" onclick="abrirModalContacto()"><i class="fa-regular fa-comment"></i></div>
+
+<!-- Modal emergente de contacto -->
+<div id="modalContacto" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalContacto()">&times;</span>
+    <h3>Contacto rápido</h3>
+    <div class="chat-form">
+      <div class="chat-bubble sistema">Hola, ¿En qué podemos ayudarte?</div>
+      <form method="POST" action="/controllers/enviar_contacto.php">
+        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <input type="submit" value="Enviar">
+      </form>
+    </div>
+  </div>
+</div>
   </div>
 
 
@@ -109,9 +133,18 @@ if (isset($_GET['opcion'])) {
   <script src="/assets/js/cargar.js"></script>
   <script>
     cargar('#barra', '/views/barra_contratista.php');
-    console.log("➡️ Redirigiendo a:", "<?php echo $redir; ?>");
+    console.log("Redirigiendo a:", "<?php echo $redir; ?>");
     <?php echo $redir; ?>
   </script>
+  <script>
+function abrirModalContacto() {
+  document.getElementById("modalContacto").style.display = "block";
+}
+
+function cerrarModalContacto() {
+  document.getElementById("modalContacto").style.display = "none";
+}
+</script>
 
 </body>
 

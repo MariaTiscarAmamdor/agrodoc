@@ -9,6 +9,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $usuario = unserialize($_SESSION['usuario']);
+$nombre = $usuario['nombre'] ?? 'Proveedor';
 
 if ($usuario['tipo'] !== 'proveedor') {
     echo "Acceso no autorizado.";
@@ -56,6 +57,7 @@ if (isset($_GET['opcion'])) {
     crossorigin="" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/estilos_app_tv.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/estilos_app_proveedor.css">
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -73,6 +75,11 @@ if (isset($_GET['opcion'])) {
           <img src="/assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
         </a>
       </div>
+      <div class="usuario">
+        <span><?php echo $nombre; ?></span>
+        <div class="loging">
+          <a href="/app/logout"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+        </div>
     </header>
     <div id="barra"></div>
     <div id="portada"></div>
@@ -109,7 +116,7 @@ if (isset($_GET['opcion'])) {
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/assets/js/cargar.js"></script>
   <script>
-    cargar('#barra', '/views/barra_contratista.php');
+    cargar('#barra', '/views/barra_proveedor.php');
     console.log("➡️ Redirigiendo a:", "<?php echo $redir; ?>");
     <?php echo $redir; ?>
   </script>

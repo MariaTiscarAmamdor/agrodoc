@@ -115,17 +115,18 @@ class ProyecController
     public function getProyectosPorProveedorYContratista($idProveedor, $idContratista)
     {
         $sql = "
-        SELECT pr.*, pr.id_proyec, f.localizacion, pr.fecha_inicio, pr.fecha_fin
-        FROM proyectos pr
-        INNER JOIN fincas f ON pr.id_finca = f.id_finca
-        WHERE pr.id_prov = ? AND pr.id_cont = ?
-    ";
-
+            SELECT pr.*, f.localizacion, pr.fecha_inicio, pr.fecha_fin
+            FROM proyectos pr
+            INNER JOIN fincas f ON pr.id_finca = f.id_finca
+            WHERE pr.id_prov = ? AND pr.id_cont = ?
+        ";
+    
         $stmt = $this->db->conn->prepare($sql);
         $stmt->execute([$idProveedor, $idContratista]);
-
+    
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 
     public function getProyectosPorContratista($idContratista)
     {
@@ -147,8 +148,20 @@ class ProyecController
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getContratistasPorProveedor($idProveedor)
+    {
+        $sql = "
+        SELECT DISTINCT c.*
+        FROM contratistas c
+        INNER JOIN proyectos pr ON pr.id_cont = c.id_cont
+        WHERE pr.id_prov = ?
+    ";
 
-    
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$idProveedor]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 if (isset($_GET['action'])) {
@@ -187,6 +200,14 @@ if (isset($_GET['action'])) {
             }
             break;
 
+        case 'listarProyectosContratista':
+            if (isset($_GET['id_cont'])) {
+                $proyectos = $controller->getProyectosPorContratista($_GET['id_cont']);
+                header('Content-Type: application/json');
+                echo json_encode($proyectos);
+                exit;
+            }
+            break;
         default:
             header('Content-Type: application/json');
             echo json_encode(["error" => "Acción no válida"]);

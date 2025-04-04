@@ -5,14 +5,25 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
+$usuario = unserialize($_SESSION['usuario']);
+$tipo = $usuario['tipo'] ?? '';
+
 include_once('../controllers/TrabController.php');
 
 $controller = new TrabController();
 $datos = $controller->getTrabajadores();
-?>
 
-<div class="volver">
-    <a href="javascript:cargar('#portada','/views/app_admin.php');"><button>Volver</button></a>
+if ($tipo === 'proveedor') {
+    $idProv = $usuario['id_prov'];
+    $datos = $controller->getTrabajadoresPorProveedor($idProv);
+} else {
+   
+    $datos = $controller->getTrabajadores(); 
+}
+?>
+<div id="datosUsuario" 
+     data-tipo="<?= $tipo ?>" 
+     data-id-prov="<?= $usuario['id_prov'] ?? '' ?>">
 </div>
 
 <h2>Lista de Trabajadores</h2>

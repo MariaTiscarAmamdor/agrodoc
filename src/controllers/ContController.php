@@ -86,6 +86,18 @@ class ContController
             $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3], $datos[4]));
             $this->db->conn->commit();
         }
+
+        public function getContratistasPorProveedor($idProveedor) {
+            $sql = "
+                SELECT DISTINCT c.*
+                FROM contratistas c
+                INNER JOIN proyectos p ON c.id_cont = p.id_cont
+                WHERE p.id_prov = ?
+            ";
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$idProveedor]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
 }
 
 

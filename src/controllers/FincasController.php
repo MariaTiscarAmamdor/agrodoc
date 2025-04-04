@@ -95,7 +95,7 @@ class FincasController
         $this->db->conn->commit();
     }
 
-    //Listar fincas asociadas a un contratista
+    //fincas asociadas a un contratista
     public function getFincasPorContratista($id_cont)
 {
     try {
