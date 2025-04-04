@@ -1,0 +1,9 @@
+# Ignorar archivos y carpetas del contenedor de base de datos
+database/mysql/*.sock
+database/mysql/auto.cnf
+database/mysql/binlog.index
+database/mysql/ib_buffer_pool
+database/mysql/*.pid
+database/mysql/*.err
+database/mysql/*.log
+

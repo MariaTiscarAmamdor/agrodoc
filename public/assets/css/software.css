@@ -1,0 +1,50 @@
+/* Estilos para el software */
+.container_software {
+    background-image: url("../img/formacion.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0%;
+    width: 100%;
+  }
+  .container_software article {
+    margin: 0%;
+    padding: 0%;
+  }
+  .container_software img {
+    width: 20%;
+    height: auto;
+    margin-left: 10%;
+    padding: 0%;
+  }
+  .container_software h1 {
+    margin: 0%;
+    font: size 2.5em;
+  }
+  .container_software h2 {
+    color: var(--color-hover);
+    font-weight: bold;
+    padding: 5% 0;
+  }
+  .container_software p {
+    color: var(--color-primario);
+    font-weight: bold;
+  }
+  
+  .container_software article {
+    width: 50%;
+    margin-left: 5%;
+  }
+  .container_button_software {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+    gap: 10px;
+  }
+  .button-informacion,
+  .button-suscripcion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }

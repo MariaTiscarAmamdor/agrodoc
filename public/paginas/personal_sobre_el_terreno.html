@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma AgroDoc - Gestión documental agrícola" />
+    <meta name="keywords" content="agricultura, gestión documental, agro, empresas, proveedores" />
+    <link rel="icon" type="image/png" sizes="128x128" href="../assets/img/favicon.png">
+    <!-- FontAwasome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/estilos_tv.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/soluciones.css">
+    
+    <title>Agrodoc-Plataforma CAE</title>
+</head>
+<body>
+  <!--Contenedor principal-->
+  <div id="principal">
+    <div class="container_header_nav">
+      <!--Cabecera-->    
+      <header id="principal_header" role="banner"> 
+         <div class="container_logotipo">
+           <a href="#" name="logotipo">           
+             <img src="../assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
+           </a>
+         </div>
+         <div class="container_perfiles">
+           <div class="informacion"> 
+             <a href="#" aria-label="Información">
+               <i class="fa-solid fa-circle-info fa-2x"></i>
+             </a>
+         </div>        
+         <div class="perfiles">        
+           <a href="#" class="a-contratista active" id="contratista" aria-label="Soy contratista">Soy contratista</a> 
+           <a href="./paginas/proveedor.html" class="a-proovedor" id="proveedor" aria-label="Soy proveedor">Soy proveedor</a>
+         </div>
+       </div> 
+        
+       <div class="container-selector-group"> 
+         <!-- Selector de Soporte -->
+        <div class="container-selector">
+          <a id="soporteLink" aria-haspopup="true" aria-expanded="false">Soporte <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+          <ul id="soporteMenu" class="selector-menu">
+           <li><a href="./faq.html">FAQ</a></li>
+           <li><a href="./manual.html">Manual de uso</a></li>
+         </ul>
+         </div> 
+ 
+        <!-- Selector de Idioma -->
+        <div class="container-selector">
+          <a id="languageLink" aria-haspopup="true" aria-expanded="false">Idioma <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+           <ul id="languageMenu" class="selector-menu">
+             <li><a href="#">Español</a></li>
+             <li><a href="#">Inglés</a></li>
+           </ul>
+        </div>
+ 
+        <!-- Blog -->  
+        <div id="newBadge">NEW</div>      
+        <div class="container-selector">          
+          <a href="./blog.html" id="blogLink">Blog</a>                    
+        </div>         
+      </div> 
+       
+         <!-- Login -->
+          <div class="loging"> 
+             <a href="/views/login.php">
+                 <i class="fas fa-user usuario"></i>  Entrar
+             </a>
+           </div>                 
+      </header>
+      <!-- Menú de navegación -->
+     <div id="menuHamburguesa" aria-label="Abrir menú">&#9776</div>
+     <nav id="nav" role="navigation">  
+       <ul class="container_nav">
+         <li><a href="../index.html">Inicio</a></li>
+         <li><a href="./plataforma.html">Plataforma CAE</a></li>
+         <li><a href="./software.html">Software PRL</a></li>
+         <li><a>Mas soluciones <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+           <ul>
+             <li><a href="./directorio.html">Directorio de proveedores</a></li>
+             <li><a href="./control_de_accesos.html">Control de accesos</a></li>
+             <li><a href="./personal_sobre_el_terreno.html">Personal sobre el terreno</a></li>
+           </ul>
+         </li>
+         <li><a href="./contacto.html">Contacto</a></li>
+       </ul>     
+     </nav>
+   </div>
+    <!-- Sección de contenido -->
+    <!-- <aside id="aside" role="complementary" class="aside_soluciones">
+      <ul>
+        <li><a href="#control-articulo_1">Sistemas de control </a></li>
+        <li><a href="#control-articulo_2">¿Qué es?</a></li>
+        <li><a href="#control-articulo_3">¿Cómo funciona?</a></li>
+        <li><a href="#control-articulo_4">Ventajas</a></li>         
+      </ul>
+     </aside> -->
+   <!-- Contenido principal -->
+   <main id="main_control" role="main" > 
+    <div class="container-personal">         
+        <div class="titulo-personal"><h1 class="espacio_blanco">Personal sobre el terreno</h1></div>
+        <div class="container-pestañas">
+            <div class="pestaña active" data-tab="controladores">Controladores</div>
+            <div class="pestaña" data-tab="auditores">Auditores</div>
+            <div class="pestaña" data-tab="prevencionistas">Prevencionistas</div>
+          </div>            
+    </div>
+    <div class="tab-content active" id="tab-controladores">
+        <article id="personal-articulo_1">
+            <div>
+            <h2>Controladores controlando la documentación CAE</h2>
+            <p>Profesionales que se encargarán de que tu proyecto esté protegido de los riesgos que suponen los accesos de recursos inadecuados así 
+                como de ayudar a tus subcontratas con su documentación CAE.</p>
+            </div>
+            <div class="container_enlace_control">
+                    <a href="./webminar.html" class="enlace-informacion"> <i class="fa-regular fa-circle-play fa-2x play"></i>Accede a nuestro webminar y realiza tus preguntas</a>
+                    <a href="./contacto.html" class="enlace-suscripcion">Solicita mas información</a>
+            </div> 
+        </article>
+        <article id="personal-articulo_2">
+            <div>
+              <h2 class="espacio_blanco">¿Quiénes son los controladores?</h2>
+              <p>Profesionales de Agrodoc a los que puedes subcontratar, y que se encargarán de que toda la documentación CAE esté correcta cuando un trabajador o una máquina acceda a tu proyecto.</p>
+              <p>Su formación les permitirá resolver por ti cualquier problema que pueda surgir en el acceso de tus subcontratas, en constante colaboración con nuestros expertos documentalistas.</p>
+            </div>
+            <div class="personal-img">
+              <img src="../assets/img/movil.jpeg" alt="Uso de un móvil" title="Uso de un móvil" class="img-responsive-personal">
+            </div> 
+          </article>
+          <article id="personal-articulo_3">
+            <div>
+              <h2>Cómo funciona</h2> 
+              <p>Ubicados en el proyecto, apoyados en la plataforma de Gestión Documental CAE de Agrodoc, así como en alguno de nuestros sistemas de control de accesos y en constante colaboración con el personal del proyecto, garantizarán que se franquee
+                el paso únicamente a recursos que no supongan riesgos documentales.</p>
+              <p>En casos críticos, franquearán el paso a recursos no aptos documentalmente previa autorización de los responsables del proyecto dejando siempre traza de dichos casos.</p>
+            </div>
+          </article> 
+          <article id="personal-articulo_4">
+            <h2 class="espacio_blanco">Qué beneficios obtienes</h2>
+          <div class="columnas">
+            <div class="columna">
+              <div class="ventaja">
+                <i class="fas fa-user-check icono"></i>
+                <div>
+                  <h3>Sólo trabajadores aptos en tu proyecto</h3>
+                  <p>Nuestros controladores comprobarán que los trabajadores que acceden al proyecto son aptos documentalmente, gestionando listas negras en caso necesario reduciendo tus riesgos.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-file-excel icono"></i>
+                <div>
+                  <h3>Confección de listerías y hojas de control de jornadas en Excel para su posterior gestión.</h3>
+                  <p>Nuestros controladores se encargarán de que recibas los informes necesarios para una correcta gestión posterior del proyecto, solucionando cualquier incidencia que pueda surgir.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-users icono"></i>
+                <div>
+                  <h3>Listados de presencia en tiempo real</h3>
+                  <p>En cualquier momento, nuestros controladores facilitarán listados completos de las personas que se encuentren presentes en el proyecto en un momento dado</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-id-card icono"></i>
+                <div>
+                  <h3>Gestión de visitas y suministradores</h3>
+                  <p>También es posible entregar carnets de visitantes o suministradores a personas que no precisen tener correcta su documentación CAE..</p>
+                </div>
+              </div>
+            </div>
+            <div class="columna">
+              <div class="ventaja">
+                <i class="fas fa-cogs icono"></i>
+                <div>
+                  <h3>Sólo máquinas aptas en tu proyecto</h3>
+                  <p>Verifica su aptitud documental en tiempo real.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-qrcode icono"></i>
+                <div>
+                  <h3>QR infalsificable y foto del trabajador</h3>
+                  <p>Evita suplantaciones con QR + fotografía en los carnets.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-clock icono"></i>
+                <div>
+                  <h3>Control simple o de alta precisión</h3>
+                  <p>Paga por horas reales trabajadas y reduce costes innecesarios.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-sync-alt icono"></i>
+                <div>
+                  <h3>Compatible con cualquier dispositivo</h3>
+                  <p>Smartphones, tornos, lectores… lo que necesites.</p>
+                </div>
+              </div>
+            </div>
+          </div>       
+          </article> 
+    </div> 
+    <div class="tab-content" id="tab-auditores">
+        <article id="personal-articulo_1">
+            <h2>Prevencionistas controlando el proyecto</h2>
+            <p>Personal especializado para el refuerzo en la Prevención de Riesgos Laborales.</p>
+                <div class="container_enlace_control">
+                    <a href="./webminar.html" class="enlace-informacion"> <i class="fa-regular fa-circle-play fa-2x play"></i>Accede a nuestro webminar y realiza tus preguntas</a>
+                    <a href="./contacto.html" class="enlace-suscripcion">Solicita mas información</a>
+                </div> 
+        </article>
+        <article id="personal-articulo_2">
+            <div>
+              <h2 class="espacio_blanco">¿Quiénes son los prevencionistas?</h2>
+              <p>Profesionales de Agrodoc a los que puedes subcontratar, y en los que podrás confiar la labor de Prevención, Seguridad y Salud Laborales de cualquiera de tus proyectos.</p>
+              <p>Nuestro prevencionista apoyará su labor en la plataforma de Gestión Documental CAE de Agrodoc, liberándole de papeleos para que pueda dedicarse a lo más importante: tu tranquilidad.</p>
+            </div>
+            <div class="personal-img">
+              <img src="../assets/img/movil.jpeg" alt="Uso de un móvil" title="Uso de un móvil" class="img-responsive-personal">
+            </div> 
+          </article>
+          <article id="personal-articulo_3">
+            <div>
+              <h2>Cómo funciona</h2> 
+              <p>Ya sea porque la política de tu empresa o proyecto sea subcontratar la Prevención o como necesidad de proyectos puntuales, nuestros prevencionistas se comprometerán con la labor de promover, evaluar, mejorar, controlar, coordinar, 
+                formar y planificar toda la labor que necesitas respecto Seguridad y Salud de tus proyectos.</p>
+              <p>También estaremos al lado de tus prevencionistas en caso de que necesites a los nuestros como refuerzo.</p>
+            </div>
+          </article> 
+          <article id="personal-articulo_4">
+            <h2 class="espacio_blanco">Qué beneficios obtienes</h2>
+            <div class="columnas">
+                <div class="columna">
+                  <div class="ventaja">
+                    <i class="fas fa-user-shield icono"></i>
+                    <div>
+                      <h3>Prevención personalizada</h3>
+                      <p>Los prevencionistas evalúan los riesgos específicos de cada proyecto y adaptan las medidas preventivas a su realidad concreta.</p>
+                    </div>
+                  </div>
+                  <div class="ventaja">
+                    <i class="fas fa-file-medical icono"></i>
+                    <div>
+                      <h3>Documentación preventiva al día</h3>
+                      <p>Se aseguran de que toda la documentación en materia de prevención esté actualizada y correctamente archivada.</p>
+                    </div>
+                  </div>
+                  <div class="ventaja">
+                    <i class="fas fa-chalkboard-teacher icono"></i>
+                    <div>
+                      <h3>Formación en el terreno</h3>
+                      <p>Forman e informan a los trabajadores sobre los riesgos y las buenas prácticas en el lugar de trabajo.</p>
+                    </div>
+                  </div>
+                  <div class="ventaja">
+                    <i class="fas fa-exclamation-triangle icono"></i>
+                    <div>
+                      <h3>Detección de riesgos en tiempo real</h3>
+                      <p>Identifican situaciones peligrosas y proponen medidas correctoras inmediatamente, minimizando accidentes.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="columna">
+                  <div class="ventaja">
+                    <i class="fas fa-clipboard-check icono"></i>
+                    <div>
+                      <h3>Inspecciones continuas</h3>
+                      <p>Realizan visitas regulares al proyecto para garantizar el cumplimiento de la normativa de PRL.</p>
+                    </div>
+                  </div>
+                  <div class="ventaja">
+                    <i class="fas fa-comments icono"></i>
+                    <div>
+                      <h3>Interlocutores con los técnicos de PRL</h3>
+                      <p>Se coordinan con los servicios de prevención propios o ajenos, asegurando una comunicación efectiva.</p>
+                    </div>
+                  </div>
+                  <div class="ventaja">
+                    <i class="fas fa-hands-helping icono"></i>
+                    <div>
+                      <h3>Apoyo en emergencias</h3>
+                      <p>En situaciones de urgencia actúan como primeros apoyos coordinando los primeros pasos de actuación preventiva.</p>
+                    </div>
+                  </div>
+                  <div class="ventaja">
+                    <i class="fas fa-shield-alt icono"></i>
+                    <div>
+                      <h3>Refuerzo de la cultura preventiva</h3>
+                      <p>Fomentan hábitos seguros entre los trabajadores para prevenir riesgos antes de que aparezcan.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+          </article> 
+    </div>
+    <div class="tab-content" id="tab-prevencionistas">
+        <article id="personal-articulo_1">
+            <h2>Controladores controlando la documentación CAE</h2>
+            <p>Profesionales que se encargarán de que tu proyecto esté protegido de los riesgos que suponen los accesos de recursos inadecuados así 
+                como de ayudar a tus subcontratas con su documentación CAE.</p>
+                <div class="container_enlace_control">
+                    <a href="./webminar.html" class="enlace-informacion"> <i class="fa-regular fa-circle-play fa-2x play"></i>Accede a nuestro webminar y realiza tus preguntas</a>
+                    <a href="./contacto.html" class="enlace-suscripcion">Solicita mas información</a>
+                </div> 
+        </article>
+        <article id="personal-articulo_2">
+            <div>
+              <h2 class="espacio_blanco">¿Quiénes son los controladores?</h2>
+              <p>Profesionales de Agrodoc a los que puedes subcontratar, y que se encargarán de que toda la documentación CAE esté correcta cuando un trabajador o una máquina acceda a tu proyecto.</p>
+              <p>Su formación les permitirá resolver por ti cualquier problema que pueda surgir en el acceso de tus subcontratas, en constante colaboración con nuestros expertos documentalistas.</p>
+            </div>
+            <div class="personal-img">
+              <img src="../assets/img/movil.jpeg" alt="Uso de un móvil" title="Uso de un móvil" class="img-responsive-personal">
+            </div> 
+          </article>
+          <article id="personal-articulo_3">
+            <div>
+              <h2>Cómo funciona</h2> 
+              <p>Ubicados en el proyecto, apoyados en la plataforma de Gestión Documental CAE de Agrodoc, así como en alguno de nuestros sistemas de control de accesos y en constante colaboración con el personal del proyecto, garantizarán que se franquee
+                el paso únicamente a recursos que no supongan riesgos documentales.</p>
+              <p>En casos críticos, franquearán el paso a recursos no aptos documentalmente previa autorización de los responsables del proyecto dejando siempre traza de dichos casos.</p>
+            </div>
+          </article> 
+          <article id="personal-articulo_4">
+            <h2 class="espacio_blanco">Qué beneficios obtienes</h2>
+          <div class="columnas">
+            <div class="columna">
+              <div class="ventaja">
+                <i class="fas fa-user-check icono"></i>
+                <div>
+                  <h3>Sólo trabajadores aptos en tu proyecto</h3>
+                  <p>Nuestros controladores comprobarán que los trabajadores que acceden al proyecto son aptos documentalmente, gestionando listas negras en caso necesario reduciendo tus riesgos.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-file-excel icono"></i>
+                <div>
+                  <h3>Confección de listerías y hojas de control de jornadas en Excel para su posterior gestión.</h3>
+                  <p>Nuestros controladores se encargarán de que recibas los informes necesarios para una correcta gestión posterior del proyecto, solucionando cualquier incidencia que pueda surgir.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-users icono"></i>
+                <div>
+                  <h3>Listados de presencia en tiempo real</h3>
+                  <p>En cualquier momento, nuestros controladores facilitarán listados completos de las personas que se encuentren presentes en el proyecto en un momento dado</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-id-card icono"></i>
+                <div>
+                  <h3>Gestión de visitas y suministradores</h3>
+                  <p>También es posible entregar carnets de visitantes o suministradores a personas que no precisen tener correcta su documentación CAE..</p>
+                </div>
+              </div>
+            </div>
+            <div class="columna">
+              <div class="ventaja">
+                <i class="fas fa-cogs icono"></i>
+                <div>
+                  <h3>Sólo máquinas aptas en tu proyecto</h3>
+                  <p>Verifica su aptitud documental en tiempo real.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-qrcode icono"></i>
+                <div>
+                  <h3>QR infalsificable y foto del trabajador</h3>
+                  <p>Evita suplantaciones con QR + fotografía en los carnets.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-clock icono"></i>
+                <div>
+                  <h3>Control simple o de alta precisión</h3>
+                  <p>Paga por horas reales trabajadas y reduce costes innecesarios.</p>
+                </div>
+              </div>
+              <div class="ventaja">
+                <i class="fas fa-sync-alt icono"></i>
+                <div>
+                  <h3>Compatible con cualquier dispositivo</h3>
+                  <p>Smartphones, tornos, lectores… lo que necesites.</p>
+                </div>
+              </div>
+            </div>
+          </div>       
+          </article> 
+    </div>
+</main>
+    <!-- Pie de página -->
+    <footer id="footer" role="contentinfo">
+      <div class="footer-links">
+        <a href="./sobrenosotros.html" aria-label="Quiénes somos">Quiénes somos</a>
+        <a href="./faq.html" aria-label="FAQ">FAQ</a>
+        <a href="./contacto.html" aria-label="Contacto">Contacto</a>
+        <a href="./politica_privacidad.html" aria-label="Política de privacidad">Política de privacidad</a>
+        <a href="mailto:agrodoc@agrodoc.com" aria-label="Enviar un correo a AgroDoc">Email: agrodoc@agrodoc.com</a>
+      </div>
+    
+      <div>
+        © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
+      </div>
+    
+      <div class="footer-links">
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+          <img src="../assets/img/instagram.png" alt="Instagram" class="rrss">
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+          <img src="../assets/img/facebook.png" alt="Facebook" class="rrss">
+        </a>
+        <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter">
+          <img src="../assets/img/gorjeo.png" alt="Twitter" class="rrss">
+        </a>
+      </div>
+    </footer>
+    <!-- Modal de Información -->
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Información para Contratistas y Proveedores</h2>
+    <div class="info-content">
+      <h3>Contratista</h3>
+      <ul>
+        <li><strong>Gestión Documental CAE:</strong> Cuando como contratista deseas recibir la documentación de tus subcontratistas. Cuando como subcontratista deseas recibir la documentación de tus propios subcontratistas. Cuando como promotora/propiedad, deseas solicitar la documentación a tu contratista principal y/o a todos sus subcontratistas.</li>
+        <li><strong>Facturación electrónica:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir las facturas de tus proveedores electrónicamente.</li>
+        <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como comprador/contratador de bienes/servicios, deseas recibir la documentación/información de homologación y/o compliance de tus proveedores según tus exigencias.</li>
+        <li><strong>Herramienta de Compras:</strong> Cuando como Empresa Contratista deseas recibir ofertas de tus proveedores a tus RFQ’s.</li>
+      </ul>
+
+      <h3>Proveedor</h3>
+      <ul>
+        <li><strong>Gestión Documental CAE:</strong> Cuando como subcontratista, debes remitir tu documentación y/o las de tus propias subcontratas a tu contratista principal. Cuando como subcontratista de nivel inferior, debes remitir tu documentación a tu subcontratista de nivel superior. Cuando como contratista principal, debes remitir tu documentación y/o la de todos tus subcontratistas a tu promotora/propiedad.</li>
+        <li><strong>Facturación electrónica:</strong> Cuando como proveedor/vendedor/contratista, debes emitir las facturas a tus clientes/contratistas/administración pública electrónicamente.</li>
+        <li><strong>Homologación y Compliance de Empresas:</strong> Cuando como proveedor de bienes/servicios, debes remitir la documentación de homologación y/o compliance o según las exigencias de tu empresa a tus proveedores.</li>
+        <li><strong>Información de obras:</strong> Cuando como proveedor, deseas encontrar nuevos  proyectos y/o clientes a los que vender tus bienes y servicios.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div> 
+  <!-- js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../assets/js/menu.js"></script>
+  <script src="../assets/js/perfil.js"></script>
+  <script src="../assets/js/animation_new.js"></script>
+  <script src="../assets/js/icon_infomation.js"></script>
+  <script src="../assets/js/desplegable.js"></script>
+  <script src="../assets/js/pestañas.js"></script>
+  
+</body>
+</html>

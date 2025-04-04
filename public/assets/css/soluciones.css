@@ -1,0 +1,509 @@
+/* estilos para la página soluciones */
+
+.aside_soluciones {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-fondo);
+    padding: 10px 20px;
+    position: sticky;
+    top: 115px;
+    z-index: 150;
+  }
+  
+  .aside_soluciones ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: baseline;
+  }
+  
+  .aside_soluciones li a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 8px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .aside_soluciones li a:hover {
+    background-color: var(--color-hover); /* Color de fondo al hacer hover */
+    color: var(--color-texto); /* Texto blanco en hover */
+  }
+  
+
+  #main_soluciones h1 {
+    color: var(--color-cuarto);
+    font-weight: bold;
+    padding: 2% 0%;
+  }
+  #main_soluciones #articulo_1 {
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+  }
+  
+  .directorio_proveedores_1 {
+    background-image: url("../img/agricul.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0%;
+    padding: 20px;
+    width: 100%;
+  }
+  .container_directorio_proveedores_1 {
+    width: 50%;
+    margin-left: 5%;
+  }
+  
+  
+  .container_directorio_proveedores_1 p {
+    color: var(--color-primario);
+    font-weight: bold;
+  }
+  
+  .directorio_proveedores_1 {
+    display: flex;
+    justify-content: baseline;
+    gap: 8px;
+  }
+  .enlace-informacion,
+  .enlace-suscripcion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .directorio_proveedores_2 {
+    display: flex;
+    width: 90%;
+    margin: 3% auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .directorio_proveedores_2 div {
+    flex: 1;
+  }
+  .directorio_proveedores_2 .enlace-suscripcion{
+    width: 50%;
+    margin: 0% auto;
+  }
+  .directorio-img {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .img-responsive-directorio {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .directorio_proveedores_3 {
+    width: 90%;
+    margin: 0 auto;
+    border: #555 solid 1px;
+    border-radius: 5px;
+    box-shadow: #555 2px 2px 5px;
+    padding: 10px 20px;
+    text-align: justify;
+    font-size: 1.2vw;
+    line-height: 1.5;
+  }
+  .directorio_proveedores_3 div {
+    padding: 5%;
+  }
+  .directorio_proveedores_3 h1 {
+    font-size: 2.5vw;
+    color: var(--color-primario);
+  }
+  
+  #directorio-articulo_4 h1 {
+    font-size: 3.5vw;
+    text-align: center;
+  }
+  .container-proceso {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .proceso-item {
+    width: 280px;
+    height: 280px;
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-primario);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    box-shadow: #555 2px 2px 5px;
+  }
+  
+  .proceso-icono {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .proceso-icono span {
+    font-size: 2.9vw;
+    font-weight: bold;
+    color: var(--color-secundario);
+  }
+  
+  .proceso-icono img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .proceso-item p {
+    font-size: 1.2vw;
+    color: var(--color-primario);
+    text-align: center;
+  }
+  .item_3{
+    padding-bottom: 5%;
+  }
+
+
+  .container_directorio_proveedores_1 {
+    width: 50%;
+    margin-left: 5%;
+  }
+  
+  
+  .container_directorio_proveedores_1 p {
+    color: var(--color-primario);
+    font-weight: bold;
+  }
+
+/* estilos pagina de control de acceso */
+
+.container_control{
+  background-image: url("../img/tecnologias.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0%;
+  padding: 20px;
+  width: 100%;  
+}
+.container_control h1{
+  color: var(--color-secundario);
+  font-size: 3.5vw;
+  text-align: center;
+}
+
+#main_control h2{
+  color: var(--color-cuarto);
+  margin-bottom: 2%;
+}
+#control-articulo_1 {
+  width: 50%;
+  margin-left: 5%;
+  text-align: left;
+}
+
+
+#control-articulo_1 p {
+  color: var(--color-cuarto);
+  font-weight: bold;
+}
+
+.control-articulo_1 {
+  display: flex;
+  justify-content: baseline;
+  gap: 8px;
+}
+.enlace-informacion,
+.enlace-suscripcion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#control-articulo_2 {
+  display: flex;
+  width: 90%;
+  margin: 3% auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#control-articulo_2 div {
+  flex: 1;
+}
+
+.control-img {
+  display: flex;
+  justify-content: flex-end;
+}
+.img-responsive-control {
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+#control-articulo_3 {
+  width: 90%;
+  margin: 0 auto;
+  border: #555 solid 1px;
+  border-radius: 5px;
+  box-shadow: #555 2px 2px 5px;
+  padding: 10px 20px;
+  text-align: justify;
+  font-size: 1.2vw;
+  line-height: 1.5;
+}
+#control-articulo_3 div {
+  padding: 5%;
+}
+
+.ventajas-fichaje {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  color: var(--color-primario);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ventajas-fichaje h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.columnas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.columna {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ventaja {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.ventaja .icono {
+  font-size: 1.8rem;
+  color: var(--color-secundario);
+  min-width: 30px;
+  margin-top: 4px;
+}
+
+.ventaja h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--color-cuarto);
+}
+
+.ventaja p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Estilos pagina personal sobre terreno */
+
+.container-personal{
+  background-image: url("../img/tecnologias.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 1px;
+  margin: 0%;
+  width: 100%;
+}
+.titulo-personal h1{
+  color: var(--color-secundario);
+  font-size: 3.5vw;
+  text-align: center;
+}
+
+.container-pestañas {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 30px;
+}
+.container-pestañas div{
+  width: 30%;
+  padding: 40px;
+  font-size: large;  
+}
+.pestaña {
+  background-color: rgba(244, 244, 244, 0.5);
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: background-color 0.3s ease;
+  color: var(--color-primario);
+}
+
+.pestaña:hover {
+  background-color:#fff ;
+  color: var(--color-primario);
+}
+
+.pestaña.active {
+  background-color: #fff;
+  color: var(--color-primario);
+  border-bottom: 1px solid white;
+  position: relative;
+  z-index: 2;
+}
+
+/* Contenedores de cada pestaña */
+.tab-content {
+  display: none;
+  background-color: white;
+  padding: 30px;
+  margin: 0 auto;
+  border-top: none;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#personal-articulo_1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+  width: 90%;
+  margin: 5% auto;
+  padding: 3%;
+}
+
+#personal-articulo_1 h2{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+#personal-articulo_1 p {
+  font-size: 1.2rem;
+  text-align: justify;
+}
+.container-enlace-suscripcion {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.enlace-informacion,
+.enlace-suscripcion {
+  display: flex;
+  margin: 5% 0;
+  gap: 8px;
+  color: var(--color-texto);
+  align-items: center;
+  justify-content: baseline;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 2%;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.enlace-informacion {
+  background-color: var(--color-secundario);
+}
+.enlace-suscripcion {
+  background-color: var(--color-terciario);
+}
+
+.enlace-informacion:hover,
+.enlace-suscripcion:hover {
+  background-color: var(--color-hover);
+}
+
+.personal-articulo_1 {
+  display: flex;
+  justify-content: baseline;
+  gap: 8px;
+}
+
+#personal-articulo_2 {
+  display: flex;
+  width: 90%;
+  margin: 3% auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#personal-articulo_2 div {
+  flex: 1;
+}
+
+.personal-img {
+  display: flex;
+  justify-content: flex-end;
+}
+.img-responsive-personal {
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+#personal-articulo_3 {
+  width: 90%;
+  margin: 0 auto;
+  border: #555 solid 1px;
+  border-radius: 5px;
+  box-shadow: #555 2px 2px 5px;
+  padding: 10px 20px;
+  text-align: justify;
+  font-size: 1.2vw;
+  line-height: 1.5;
+}
+#personal-articulo_3 div {
+  padding: 5%;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .columnas {
+    flex-direction: column;
+  }
+
+  .columna {
+    flex: 1 1 100%;
+  }
+}
+

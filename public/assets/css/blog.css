@@ -1,0 +1,215 @@
+.container_blog {
+  background-image: url("../img/actualidad-3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+  margin: 0%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container_blog h1 {
+  color: var(--color-primario);
+  padding-top: 5%;
+  font-size: 3.5vw;
+  text-align: center;
+}
+
+.container_enlace_suscripcion {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+}
+
+.enlace-informacion,
+.enlace-suscripcion {
+  display: flex;
+  margin: 5% 0;
+  gap: 8px;
+  color: var(--color-texto);
+  align-items: center;
+  justify-content: baseline;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 2%;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.enlace-informacion {
+  background-color: var(--color-secundario);
+}
+.enlace-suscripcion {
+  background-color: var(--color-terciario);
+}
+
+.enlace-informacion:hover,
+.enlace-suscripcion:hover {
+  background-color: var(--color-hover);
+}
+
+.titulo {
+  font-size: 2.5vw;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.container-destacados {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 2% auto;
+  justify-content: center;
+  gap: 12px;
+}
+.container-destacados article {
+  padding: 0;
+}
+.container-articulo-blog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: #555 2px 2px 5px;
+  cursor: pointer;
+}
+#articulo-destacado-1 .container-img-blog {
+  background-image: url("../img/cultivo_sostenible.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 20%;
+}
+.img-blog {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+
+.container-img-blog {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.fecha {
+  background-color: var(--color-fondo);
+  color: var(--color-primario);
+  padding: 2%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.container-texto-blog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+  padding: 5%;
+}
+
+.container-texto-blog h3 {
+  font-size: 2.2vw;
+  color: var(--color-primario);
+  padding: 2%;
+}
+#articulo-destacado-2 .container-img-blog {
+  background-image: url("../img/cultivo_sostenible.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 20%;
+}
+
+#articulo-destacado-3 .container-img-blog {
+  background-image: url("../img/cultivo_sostenible.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 20%;
+}
+
+.container_form {
+  width: 100%;
+  margin:0 auto;
+  padding: 2% 0;
+  background-color: #ccc;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  
+    width: 60%;
+    margin: 0 auto;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+button {
+    background-color: var(--color-primario);
+    width: 30%;
+    margin: auto;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--color-hover);
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contact-form h2 {
+    color: var(--color-secundario);
+    font-size: 2.5vw;
+    text-align: center;
+
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input
+{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="checkbox"] {
+    width: auto;
+    margin-bottom: 10px;
+  }
+  .contact-form span {
+    color: red;
+  }

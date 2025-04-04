@@ -1,0 +1,64 @@
+/* estilo para pagina de politica de privacidad */
+
+.politica-privacidad {
+    width: 70%; /* Ocupa el 70% del ancho de la pantalla */
+    margin: 30px auto; /* Centrado horizontal */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.8; /* Espaciado entre líneas */
+  }
+  
+  .politica-privacidad h1,
+  .politica-privacidad h2 {
+    color: var(--color-primario); /* Color de la paleta */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .politica-privacidad p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: justify;
+  }
+  
+  .politica-privacidad ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .politica-privacidad li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .politica-privacidad a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .politica-privacidad a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .politica-privacidad {
+      width: 90%; /* Ocupa el 90% en pantallas pequeñas */
+      padding: 15px;
+    }
+  
+    .politica-privacidad h1,
+    .politica-privacidad h2 {
+      font-size: 20px;
+    }
+  
+    .politica-privacidad p,
+    .politica-privacidad li {
+      font-size: 14px;
+    }
+  }
