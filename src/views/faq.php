@@ -32,3 +32,4 @@
         </section>
       </div>
   </main>  
+  <script src="/assets/js/preguntas.js"></script>

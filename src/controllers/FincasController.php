@@ -97,38 +97,59 @@ class FincasController
 
     //fincas asociadas a un contratista
     public function getFincasPorContratista($id_cont)
-{
-    try {
-        $sql = "SELECT f.*, 
+    {
+        try {
+            $sql = "SELECT f.*, 
                    c.nombre AS nombre_contratista                  
             FROM fincas f
             LEFT JOIN contratistas c ON f.id_cont = c.id_cont
             WHERE f.id_cont = ?";
 
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$id_cont]);
+            $fincas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            //Si se llama por AJAX, devuelve JSON
+            if (!empty($_GET['action']) && $_GET['action'] === 'listarFincasPorContratista') {
+                header('Content-Type: application/json');
+                echo json_encode($fincas);
+                exit;
+            }
+
+            //Si se llama desde PHP, simplemente retorna
+            return $fincas;
+        } catch (PDOException $e) {
+            if (!empty($_GET['action'])) {
+                header('Content-Type: application/json');
+                echo json_encode(["error" => $e->getMessage()]);
+                exit;
+            } else {
+                return [];
+            }
+        }
+    }
+    public function getFincasPorProveedor($idProveedor)
+    {
+        $sql = "
+        SELECT f.id_finca, f.localizacion, f.hectarea, f.cultivo
+        FROM fincas f
+        INNER JOIN proyectos p ON p.id_finca = f.id_finca
+        WHERE p.id_prov = ?
+    ";
+
         $stmt = $this->db->conn->prepare($sql);
-        $stmt->execute([$id_cont]);
+        $stmt->execute([$idProveedor]);
         $fincas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        //Si se llama por AJAX, devuelve JSON
-        if (!empty($_GET['action']) && $_GET['action'] === 'listarFincasPorContratista') {
+        // Si se llama por AJAX
+        if (!empty($_GET['action']) && $_GET['action'] === 'listarFincasPorProveedor') {
             header('Content-Type: application/json');
             echo json_encode($fincas);
             exit;
         }
 
-        //Si se llama desde PHP, simplemente retorna
         return $fincas;
-    } catch (PDOException $e) {
-        if (!empty($_GET['action'])) {
-            header('Content-Type: application/json');
-            echo json_encode(["error" => $e->getMessage()]);
-            exit;
-        } else {
-            return [];
-        }
     }
-}
-
 }
 
 if (isset($_GET['action'])) {
@@ -163,6 +184,12 @@ if (isset($_GET['action'])) {
                 $controller->getFincasPorContratista($_GET['id_cont']);
             }
             break;
+        case 'listarFincasPorProveedor':
+            if (isset($_GET['id_prov'])) {
+                $controller->getFincasPorProveedor($_GET['id_prov']);
+            }
+            break;
+
 
         default:
             header('Content-Type: application/json');

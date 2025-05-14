@@ -1,5 +1,4 @@
-function cargar(contenedor, url) {
-    console.log(`Cargando ${url} en ${contenedor}...`);
+function cargar(contenedor, url) {    
 
     $.ajax({
         url: url,

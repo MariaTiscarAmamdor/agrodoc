@@ -63,8 +63,8 @@ class ContController
                 WHERE id_cont = ?";
 
             $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute([$datos[1], $datos[2], $datos[3], $datos[4], $datos[5], $datos[0] ]); 
-            
+            $stmt->execute([$datos[1], $datos[2], $datos[3], $datos[4], $datos[5], $datos[0]]);
+
 
             if ($stmt->rowCount() > 0) {
                 echo json_encode(["mensaje" => "Contratista actualizado correctamente."]);
@@ -76,39 +76,52 @@ class ContController
         }
     }
 
-        //Método para crear un contratista y como no devuelve nada no usa ningun fetch
-        public function setContratista($datos)
-        {
-            $datos = unserialize($datos);
-            $this->db->conn->beginTransaction();
-            $sql = "INSERT INTO contratistas VALUES (?,?,?,?,?,?);";
-            $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3], $datos[4]));
-            $this->db->conn->commit();
+    //Método para crear un contratista y como no devuelve nada no usa ningun fetch
+    public function setContratista($datos)
+    {
+        $datos = unserialize($datos);
+        $this->db->conn->beginTransaction();
+        $sql = "INSERT INTO contratistas VALUES (?,?,?,?,?,?);";
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute(array(0, $datos[0], $datos[1], $datos[2], $datos[3], $datos[4]));
+        $this->db->conn->commit();
+    }
+
+    public function getContratistasPorProveedor($idProveedor)
+    {
+        $sql = "
+        SELECT c.id_cont, c.nombre, p.fecha_inicio, c.cif, c.email, c.direccion, c.telefono
+        FROM proyectos p
+        INNER JOIN contratistas c ON p.id_cont = c.id_cont
+        WHERE p.id_prov = ?
+    ";
+
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$idProveedor]);
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Si se llama por AJAX
+        if (!empty($_GET['action']) && $_GET['action'] === 'listarContratistasPorProveedor') {
+            header('Content-Type: application/json');
+            echo json_encode($datos);
+            exit;
         }
 
-        public function getContratistasPorProveedor($idProveedor) {
-            $sql = "
-                SELECT DISTINCT c.*
-                FROM contratistas c
-                INNER JOIN proyectos p ON c.id_cont = p.id_cont
-                WHERE p.id_prov = ?
-            ";
-            $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute([$idProveedor]);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        public function getTrabajadoresPorProveedor($idProveedor) {
-            $sql = "
+        return $datos;
+    }
+
+    public function getTrabajadoresPorProveedor($idProveedor)
+    {
+        $sql = "
                 SELECT DISTINCT t.*
                 FROM trabajadores t
                 INNER JOIN proveedores p ON t.id_prov = p.id_prov
                 WHERE p.id_prov = ?
             ";
-            $stmt = $this->db->conn->prepare($sql);
-            $stmt->execute([$idProveedor]);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$idProveedor]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 
@@ -145,6 +158,11 @@ if (isset($_GET['action'])) {
         case 'crearContratista':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $controller->setContratista($_POST);
+            }
+            break;
+        case 'listarContratistasPorProveedor':
+            if (isset($_GET['id_prov'])) {
+                $controller->getContratistasPorProveedor($_GET['id_prov']);
             }
             break;
 

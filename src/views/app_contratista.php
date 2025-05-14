@@ -85,25 +85,8 @@ if (isset($_GET['opcion'])) {
     </header>
 
     <div id="barra"></div>
-    <div id="portada"></div>
-  
-<!-- Botón flotante de chat -->
-<!-- <div class="chat-float-btn" onclick="abrirModalContacto()"><i class="fa-regular fa-comment"></i></div> -->
+    <div id="portada"></div>  
 
-<!-- Modal emergente de contacto -->
-<!-- <div id="modalContacto" class="modal">
-  <div class="modal-content">
-    <span class="cerrar" onclick="cerrarModalContacto()">&times;</span>
-    <h3>Contacto rápido</h3>
-    <div class="chat-form">
-      <div class="chat-bubble sistema">Hola, ¿En qué podemos ayudarte?</div>
-      <form method="POST" action="/controllers/enviar_contacto.php">
-        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
-        <input type="submit" value="Enviar">
-      </form>
-    </div>
-  </div>
-</div> -->
   </div>
 
 
@@ -139,16 +122,6 @@ if (isset($_GET['opcion'])) {
     cargar('#barra', '/views/barra_contratista.php');
     <?php echo $redir; ?>
   </script>
-  <!-- <script>
-function abrirModalContacto() {
-  document.getElementById("modalContacto").style.display = "block";
-}
-
-function cerrarModalContacto() {
-  document.getElementById("modalContacto").style.display = "none";
-}
-</script> -->
-
 </body>
 
 </html>

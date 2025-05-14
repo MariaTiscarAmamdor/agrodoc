@@ -68,6 +68,7 @@ if (isset($_GET['opcion'])) {
 </head>
 
 <body>
+<div id="userMeta" data-id-prov="<?= $usuario['id_prov'] ?>"></div>
   <div id="principal">
     <!--Cabecera-->
     <header id="principal_header" role="banner">

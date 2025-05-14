@@ -63,5 +63,9 @@
     color: var(--color-hover);
   }
   .respuesta {
-    display: none;
+    display: none;    
+    
+  }
+  p{
+    font-size: 1.5vw;
   }

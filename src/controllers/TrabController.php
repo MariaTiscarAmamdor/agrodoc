@@ -102,17 +102,17 @@ class TrabController
 
             $stmt = $this->db->conn->prepare($sql);
             $stmt->execute([$id_prov]);
-            $fincas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $trabajadores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             //Si se llama por AJAX, devuelve JSON
-            if (!empty($_GET['action']) && $_GET['action'] === 'listarFincasPorContratista') {
+            if (!empty($_GET['action']) && $_GET['action'] === 'listarTrabajadoresPorProveedor') {
                 header('Content-Type: application/json');
-                echo json_encode($fincas);
+                echo json_encode($trabajadores);
                 exit;
             }
 
             //Si se llama desde PHP, simplemente retorna
-            return $fincas;
+            return $trabajadores;
         } catch (PDOException $e) {
             if (!empty($_GET['action'])) {
                 header('Content-Type: application/json');

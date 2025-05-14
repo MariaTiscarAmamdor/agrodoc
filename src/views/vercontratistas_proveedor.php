@@ -25,7 +25,8 @@ $proyecController = new ProyecController();
 </div>
 
 <h2>Contratistas relacionados con tus campañas</h2>
-<?php foreach ($datos as $contratista): ?>   
+<?php foreach ($datos as $contratista): ?>
+     
     <div class="container_form">
         <p><strong>Nombre:</strong> <?= $contratista['nombre'] ?></p>
         <p><strong>CIF:</strong> <?= $contratista['cif'] ?></p>

@@ -27,6 +27,7 @@ function cargarProyectos() {
                     <tr data-id="${proyecto.id_proyec}">
                         <td>${proyecto.id_proyec}</td>
                         <td class='editable'>${proyecto.localizacion_finca}</td>
+                        <td class='editable'>${proyecto.tipo_cultivo}</td>
                         <td class='editable'>${proyecto.nombre_contratista}</td>
                         <td class='editable'>${proyecto.nombre_proveedor}</td>
                         <td class='editable'>${proyecto.fecha_inicio}</td>

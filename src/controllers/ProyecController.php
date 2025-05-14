@@ -115,7 +115,7 @@ class ProyecController
     public function getProyectosPorProveedorYContratista($idProveedor, $idContratista)
     {
         $sql = "
-            SELECT pr.*, f.localizacion, pr.fecha_inicio, pr.fecha_fin
+            SELECT pr.*, f.localizacion, f.cultivo, pr.fecha_inicio, pr.fecha_fin
             FROM proyectos pr
             INNER JOIN fincas f ON pr.id_finca = f.id_finca
             WHERE pr.id_prov = ? AND pr.id_cont = ?
@@ -135,6 +135,7 @@ class ProyecController
         c.nombre AS nombre_contratista,
         p.nombre AS nombre_proveedor, 
         f.localizacion AS localizacion_finca,
+        f.cultivo AS tipo_cultivo,
         pr.fecha_inicio, pr.fecha_fin
         FROM proyectos pr
         INNER JOIN contratistas c ON pr.id_cont = c.id_cont
@@ -170,6 +171,7 @@ class ProyecController
         c.nombre AS nombre_contratista,
         p.nombre AS nombre_proveedor, 
         f.localizacion AS localizacion_finca,
+        f.cultivo AS tipo_cultivo,
         pr.fecha_inicio, pr.fecha_fin
         FROM proyectos pr
         INNER JOIN contratistas c ON pr.id_cont = c.id_cont

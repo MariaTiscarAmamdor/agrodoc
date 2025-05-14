@@ -9,7 +9,7 @@ tablaFincas.addEventListener("click", (event) => {
     row.dataset.originalLocalizacion = row.querySelector("td:nth-child(5)").innerText;
 
     row.querySelectorAll(".editable").forEach((cell) => {
-      let valor = cell.innerText.trim(); // Excluir el boton
+      let valor = cell.innerText.trim(); // para eliminar el boton
       let enlaceMapa = cell.querySelector('.enlace_mapa');
   
       if (enlaceMapa) {

@@ -9,6 +9,7 @@ if (!isset($_SESSION['usuario'])) {
 $usuario = unserialize($_SESSION['usuario']);
 $tipo = $usuario['tipo'] ?? '';
 $id_contratista = $usuario['id_cont'] ?? null;
+$id_proveedor = $usuario['id_prov'] ?? null;
 ?>
 
 <?php if ($tipo === 'admin'): ?>
@@ -150,8 +151,8 @@ $id_contratista = $usuario['id_cont'] ?? null;
             </div>
 
             <div class="card card-lightblue">
-                <h3>Último trabajador asignado</h3>
-                <p id="trabajadorReciente">-</p>
+                <h3>Trabajadores sin documentación</h3>
+                <p id="trabajadoresSinDocs">0</p>
             </div>
         </div>
 

@@ -1,6 +1,4 @@
 $(function() {
-    //seleccionamos elemento con id flip y le agregamos el controlador de eventos de clic,
-    //para que cuando le hagamos clic a ese elemento se ejecuta la función interna 
     $("#p01").click( function() {        
         $("#r01").slideToggle('slow'); 
     });

@@ -36,7 +36,9 @@ else {
     <thead>
         <tr>
             <th>ID Campaña</th>
-            <th>Finca</th>            
+            <th>Finca</th>
+            <th>Ver en mapa</th> 
+            <th>Tipo de cultivo</th>           
             <th>Contratista</th>
             <th>Proveedor</th>
             <th>Fecha Inicio</th>
@@ -51,7 +53,9 @@ else {
         <?php foreach ($datos as $proyecto): ?>
             <tr data-id="<?= $proyecto['id_proyec'] ?>">
                 <td><?= $proyecto['id_proyec'] ?></td>
-                <td><?= $proyecto['localizacion_finca'] ?? 'No disponible' ?></td>                
+                <td id="localizacion"><?= $proyecto['localizacion_finca'] ?? 'No disponible' ?></td> 
+                <td><a href="javascript:void(0);" class="enlace_mapa">Ver en mapa</a></td> 
+                <td><?= $proyecto['tipo_cultivo'] ?? 'No disponible' ?></td>              
                 <td><?= $proyecto['nombre_contratista'] ?? 'No disponible' ?></td>
                 <td><?= $proyecto['nombre_proveedor'] ?? 'No disponible' ?></td>
                 <td class='editable'><?= $proyecto['fecha_inicio'] ?></td>
@@ -69,7 +73,10 @@ else {
         <?php endforeach; ?>
     </tbody>
 </table>
-
+<div id="mapContainer">
+    <div id="map"></div> 
+    <button class="cerrar_mapa" onclick="cerrarMapa()">✖</button>   
+</div>
 <?php if ($tipo === 'admin' || $tipo === 'contratista'): ?>
     <div class="enlace_crear">
     <a href="javascript:cargar('#portada','/views/nuevo_proyec.php');">
@@ -91,3 +98,4 @@ else {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/proyectos.js"></script>
 <script src="/assets/js/modificar_proyec.js"></script>
+<script src="/assets/js/ver_mapa.js"></script>

@@ -1,5 +1,6 @@
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     let isValid = true;

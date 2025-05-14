@@ -2,8 +2,7 @@
     <main id="main" role="main"> 
       <div class="container_form">
         <form id="contactForm" class="contact-form" novalidate>
-            <h2>Si te interesa alguno de nuestros servicios o necesitas más información, déjanos tus datos.</h2>
-            <p>Si ya eres cliente y necesitas soporte técnico ve al área de soporte.</p>
+            <h2>SI NECESITAS AYUDA CONTACTA CON NOSOTROS</h2>            
         
             <!-- Nombre y apellidos -->
             <div class="form-group">
