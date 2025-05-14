@@ -103,11 +103,11 @@ class ProyecController
 
         $stmt = $this->db->conn->prepare($sql);
         $stmt->execute([
-            $datos[0] ?? null, // id_cont
-            $datos[1] ?? null, // id_prov
-            $datos[2] ?? null, // id_finca
-            $datos[3] ?? null, // fecha_inicio
-            $datos[4] ?? null  // fecha_fin
+            $datos[0] ?? null,
+            $datos[1] ?? null,
+            $datos[2] ?? null,
+            $datos[3] ?? null,
+            $datos[4] ?? null
         ]);
     }
 
@@ -120,13 +120,13 @@ class ProyecController
             INNER JOIN fincas f ON pr.id_finca = f.id_finca
             WHERE pr.id_prov = ? AND pr.id_cont = ?
         ";
-    
+
         $stmt = $this->db->conn->prepare($sql);
         $stmt->execute([$idProveedor, $idContratista]);
-    
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
 
     public function getProyectosPorContratista($idContratista)
     {
@@ -148,6 +148,7 @@ class ProyecController
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function getContratistasPorProveedor($idProveedor)
     {
         $sql = "
@@ -161,6 +162,57 @@ class ProyecController
         $stmt->execute([$idProveedor]);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getProyectosPorProveedor($idProv)
+    {
+        $sql = "
+        SELECT pr.*,
+        c.nombre AS nombre_contratista,
+        p.nombre AS nombre_proveedor, 
+        f.localizacion AS localizacion_finca,
+        pr.fecha_inicio, pr.fecha_fin
+        FROM proyectos pr
+        INNER JOIN contratistas c ON pr.id_cont = c.id_cont
+        INNER JOIN proveedores p ON pr.id_prov = p.id_prov
+        INNER JOIN fincas f ON pr.id_finca = f.id_finca
+        WHERE pr.id_prov = ?
+    ";
+
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$idProv]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getTrabajadoresDeProyecto($idProy)
+    {
+        $sql = "SELECT t.* FROM proyectos_trabajadores pt 
+                INNER JOIN trabajadores t ON pt.id_trab = t.id_trab 
+                WHERE pt.id_proyec = ?";
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$idProy]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function asociarTrabajadorAProyecto($idTrab, $idProy)
+    {
+        $sql = "INSERT INTO proyectos_trabajadores (id_trab, id_proyec) VALUES (?, ?)";
+    
+        try {
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$idTrab, $idProy]);
+        } catch (PDOException $e) {
+            echo "Error al asociar trabajador: " . $e->getMessage();
+            exit;
+        }
+    }
+    
+    public function eliminarTrabajadorDeProyecto($idTrab, $idProy)
+    {
+        $sql = "DELETE FROM proyectos_trabajadores WHERE id_trab = ? AND id_proyec = ?";
+        $stmt = $this->db->conn->prepare($sql);
+        $stmt->execute([$idTrab, $idProy]);
+        echo json_encode(["mensaje" => "Trabajador eliminado del proyecto"]);
+        exit;
     }
 }
 
@@ -206,6 +258,25 @@ if (isset($_GET['action'])) {
                 header('Content-Type: application/json');
                 echo json_encode($proyectos);
                 exit;
+            }
+            break;
+        case 'listarProyectosPorProveedor':
+            if (isset($_GET['id_prov'])) {
+                $proyectos = $controller->getProyectosPorProveedor($_GET['id_prov']);
+                header('Content-Type: application/json');
+                echo json_encode($proyectos);
+                exit;
+            }
+            break;
+        case 'asociarTrabajador':
+            if (isset($_GET['id_proyec'], $_GET['id_trab'])) {
+                $controller->asociarTrabajadorAProyecto($_GET['id_trab'], $_GET['id_proyec']);
+            }
+            break;
+
+        case 'eliminarTrabajador':
+            if (isset($_GET['id_proyec'], $_GET['id_trab'])) {
+                $controller->eliminarTrabajadorDeProyecto($_GET['id_trab'], $_GET['id_proyec']);
             }
             break;
         default:

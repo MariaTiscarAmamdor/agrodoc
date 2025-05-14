@@ -1,9 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /views/login.php");
+    header("Location: /app/login");
     exit;
 }
+$usuario = unserialize($_SESSION['usuario']);
+$tipo = $usuario['tipo'] ?? '';
+$idProv = $usuario['id_prov'] ?? null;
 ?>
 
 <div class="volver">
@@ -53,12 +56,17 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
         <!-- Desplegable de proveedores -->
+        <?php if ($tipo === 'admin'): ?>
         <div id="proveedorField">
             <label for="id_prov">Selecciona un proveedor:</label>
             <select name="id_prov" id="id_prov">
                 <option value="">-- Seleccionar Proveedor --</option>
             </select>
         </div>
+        <?php else: ?>
+             <!-- insertamos automáticamente su id -->
+            <input type="hidden" name="id_prov" value="<?= $idProv ?>">
+        <?php endif; ?>
 
         <input type="submit" value="Insertar" class="submit-btn">
     </form>

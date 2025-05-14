@@ -81,3 +81,34 @@ function eliminarProyecto(id) {
   }
 }
 
+function asignarTrabajador(e, idProyecto) {
+  e.preventDefault();
+  const select = e.target.querySelector('select');
+  const idTrab = select.value;
+
+  fetch(`/controllers/ProyecController.php?action=asociarTrabajador&id_proy=${idProyecto}&id_trab=${idTrab}`)
+      .then(res => res.json())
+      .then(data => {
+          alert(data.mensaje || data.error);
+          cargar('#portada', '/views/vertrabajadores_proyecto.php');
+      });
+}
+
+
+  document.body.addEventListener("click", function (e) {
+    if (e.target.classList.contains("btn-eliminar-trabajador")) {
+      const idTrab = e.target.dataset.idTrab;
+      const idProyec = e.target.dataset.idProyec;
+
+      if (confirm("¿Eliminar este trabajador de la campaña?")) {
+        fetch(`/controllers/ProyecController.php?action=eliminarTrabajador&id_proyec=${idProyec}&id_trab=${idTrab}`)
+          .then(res => res.json())
+          .then(data => {
+            alert(data.mensaje || data.error);
+            cargar('#portada', '/views/vertrabajadores_proyecto.php');
+          })
+          .catch(err => console.error("Error al eliminar trabajador:", err));
+      }
+    }
+  });
+

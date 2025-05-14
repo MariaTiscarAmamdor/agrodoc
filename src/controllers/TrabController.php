@@ -12,7 +12,8 @@ class TrabController
     public function getTrabajadores()
     {
         $sql = "SELECT t.*, 
-                   p.nombre AS nombre_proveedor
+                   p.nombre AS nombre_proveedor,
+                   p.apellidos AS apellidos_proveedor
             FROM trabajadores t
             LEFT JOIN proveedores p ON t.id_prov = p.id_prov
             ORDER BY t.id_trab ASC";
@@ -93,7 +94,8 @@ class TrabController
     {
         try {
             $sql = "SELECT t.*, 
-                   p.nombre AS nombre_proveedor
+                   p.nombre AS nombre_proveedor,
+                   p.apellidos AS apellidos_proveedor
             FROM trabajadores t
             LEFT JOIN proveedores p ON t.id_prov = p.id_prov
             WHERE p.id_prov = ?";
@@ -131,7 +133,7 @@ if (isset($_GET['action'])) {
     $controller = new TrabController();
 
     switch ($_GET['action']) {
-        case 'listarTrabajador':
+        case 'listarTrabajadores':
             $controller->getTrabajadores();
             break;
 
@@ -160,6 +162,11 @@ if (isset($_GET['action'])) {
         case 'crearTrabajador':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $controller->setTrabajador($_POST);
+            }
+            break;
+        case 'listarTrabajadoresPorProveedor':
+            if (isset($_GET['id_prov'])) {
+                $controller->getTrabajadoresPorProveedor($_GET['id_prov']);
             }
             break;
 

@@ -1,28 +1,25 @@
-console.log("trabadores.js cargado correctamente");
-
 //Función para actualizar los datos después de eliminar o modificar
 function cargarTrabajadores() {
-    console.log("Intentando cargar trabajadores...");
+    const datosUsuario = document.getElementById('datosUsuario');
+    const tipo = datosUsuario.dataset.tipo;
+    const idProv = datosUsuario.dataset.idProv;
+    console.log("Datos de proveedor:",tipo, idProv);
 
-    fetch('/controllers/TrabController.php?action=listarTrabajadores')
-        .then(response => {
-            console.log("Respuesta recibida:", response);
-            return response.json();  
-        })
+    let url = '/controllers/TrabController.php?action=listarTrabajadores';
+
+    // Si es proveedor, pedimos solo sus trabajadores
+    if (tipo === 'proveedor') {
+        url = `/controllers/TrabController.php?action=listarTrabajadoresPorProveedor&id_prov=${idProv}`;
+    }
+
+    fetch(url)
+        .then(response => response.json())
         .then(data => {
-            console.log("Datos recibidos para actualizar tabla:", data);
-
-            let tabla = document.getElementById("trabajadoresTabla").querySelector('tbody');
-            if (!tabla) {
-                console.error("La tabla no está definida");
-                return;
-            }
-
-            tabla.innerHTML = ""; 
+            const tabla = document.getElementById("trabajadoresTabla").querySelector('tbody');
+            tabla.innerHTML = "";
 
             data.forEach(trabajador => {
-               
-                let row = `
+                const row = `
                     <tr data-id="${trabajador.id_trab}">
                         <td>${trabajador.id_trab}</td>
                         <td class='editable'>${trabajador.nombre}</td>
@@ -32,23 +29,22 @@ function cargarTrabajadores() {
                         <td class='editable'>${trabajador.telefono}</td>
                         <td class='editable'>${trabajador.direccion}</td>
                         <td class='editable'>${trabajador.documentos ? 'Sí' : 'No'}</td>
-                        <td class='editable'>${trabajador.nombre_proveedor}</td>
+                        <td>${trabajador.nombre_proveedor ?? ''} ${trabajador.apellidos_proveedor ?? ''}</td>
                         <td>
                             <button onclick="editarTrabajador(${trabajador.id_trab})">Modificar</button>
                             <button style="display:none;" onclick="guardarTrabajador(${trabajador.id_trab})">Guardar</button>
                         </td>
                         <td>
-                            <button onclick="eliminartrabajador(${trabajador.id_trab})">Eliminar</button>
+                            <button onclick="eliminarTrabajador(${trabajador.id_trab})">Eliminar</button>
                         </td>
                     </tr>
                 `;
                 tabla.innerHTML += row;
             });
-
-            console.log("Tabla actualizada correctamente");
         })
         .catch(error => console.error("Error al cargar trabajadores:", error));
 }
+
 
 // Eliminar trabajador
 function eliminarTrabajador(id) {
@@ -57,9 +53,9 @@ function eliminarTrabajador(id) {
         .then(response =>             
             response.json())           
         .then(data => {          
-                alert(data.mensaje || data.error);
+                alert(data.mensaje || data.error);              
                
-                // Obtener tipo de usuario y id del HTML
+                //Obtener tipo de usuario y id del HTML
                 const datosUsuario = document.getElementById('datosUsuario');
                 const tipo = datosUsuario.dataset.tipo;
                 const idProv = datosUsuario.dataset.idProv; 

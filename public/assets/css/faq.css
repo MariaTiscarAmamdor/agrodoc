@@ -1,3 +1,13 @@
+/* PALETA DE COLORES */
+:root {
+  --color-primario: #28784d;
+  --color-secundario: #cd9c1c;
+  --color-terciario: #ff682c;
+  --color-cuarto: #17432c;
+  --color-texto: #ecf0f0;
+  --color-hover: #335f47;
+  --color-fondo: #f4f4f4;
+}
 /* Estilos para la página de preguntas  */
 .container-preguntas {
     text-align: center;
@@ -10,6 +20,7 @@
     margin: 0 auto;
   }
   .pregunta {
+    background-color: var(--color-fondo);
     color: var(--color-primario);
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -27,6 +38,9 @@
   }
   .container-preguntas section {
     margin: 2% auto;
+  }
+  #container_dudas{
+    background-color: var(--color-fondo);
   }
   #container_dudas p,
   h1 {

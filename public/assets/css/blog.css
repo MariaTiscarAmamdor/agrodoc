@@ -124,7 +124,7 @@
   padding: 2%;
 }
 #articulo-destacado-2 .container-img-blog {
-  background-image: url("../img/cultivo_sostenible.jpg");
+  background-image: url("../img/temperatura.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -134,7 +134,7 @@
 }
 
 #articulo-destacado-3 .container-img-blog {
-  background-image: url("../img/cultivo_sostenible.jpg");
+  background-image: url("../img/certificados.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -147,7 +147,7 @@
   width: 100%;
   margin:0 auto;
   padding: 2% 0;
-  background-color: #ccc;
+  background-color: #dedcdc;
 }
 form{
     display: flex;

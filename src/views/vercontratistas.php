@@ -2,21 +2,23 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /views/login.php");
+    header("Location: /app/login");
     exit;
 }
 
 $usuario = unserialize($_SESSION['usuario']);
 $tipo = $usuario['tipo'] ?? '';
+
 include_once('../controllers/ContController.php');
 
 $controller = new ContController();
+
+
 $datos = $controller->getContratistas();
+
+
 ?>
 
-<div class="volver">
-    <a href="javascript:cargar('#portada','/views/app_admin.php');"><button>Volver</button></a>
-</div>
 
 <h2> Lista de Contratistas </h2>
 <table id="contratistasTabla">

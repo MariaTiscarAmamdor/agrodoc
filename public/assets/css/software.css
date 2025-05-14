@@ -35,16 +35,3 @@
     width: 50%;
     margin-left: 5%;
   }
-  .container_button_software {
-    display: flex;
-    justify-content: space-between;
-    margin: 5% 0;
-    gap: 10px;
-  }
-  .button-informacion,
-  .button-suscripcion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }

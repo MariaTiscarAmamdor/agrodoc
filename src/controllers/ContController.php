@@ -98,6 +98,17 @@ class ContController
             $stmt->execute([$idProveedor]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+        public function getTrabajadoresPorProveedor($idProveedor) {
+            $sql = "
+                SELECT DISTINCT t.*
+                FROM trabajadores t
+                INNER JOIN proveedores p ON t.id_prov = p.id_prov
+                WHERE p.id_prov = ?
+            ";
+            $stmt = $this->db->conn->prepare($sql);
+            $stmt->execute([$idProveedor]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
 }
 
 

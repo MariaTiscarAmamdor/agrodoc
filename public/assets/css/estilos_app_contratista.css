@@ -8,7 +8,7 @@
   color: white;
   transition: width 0.3s ease;
   overflow: hidden;
-  width: 70px; /* colapsado */
+  width: 75px; /* colapsado */
   z-index: 1000;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .sidebar-title {
-  font-size: 18px;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -48,6 +48,7 @@
 .sidebar-menu a {
   color: white;
   text-decoration: none;
+  font-size: 18px;
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -67,7 +68,7 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .usuario-nombre {

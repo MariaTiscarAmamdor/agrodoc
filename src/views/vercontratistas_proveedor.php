@@ -21,7 +21,7 @@ $proyecController = new ProyecController();
 ?>
 
 <div class="volver">
-    <a href="javascript:cargar('#portada','/views/vercontratistas.php');"><button>Volver</button></a>
+    <a href="javascript:cargar('#portada','/views/vercontratistas.php');"><button>Volver a lista de Contratistas</button></a>
 </div>
 
 <h2>Contratistas relacionados con tus campañas</h2>

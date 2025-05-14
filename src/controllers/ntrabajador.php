@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include_once(__DIR__ . '/../controllers/TrabController.php'); 
 
 $bloque = array(); 
@@ -16,8 +17,15 @@ $datosSerializados = serialize($bloque);
 $controller = new TrabController();
 $controller->setTrabajador($datosSerializados);
 
-//Si todo está bien, redirigimos al panel de administración
-header("Location: /views/app_admin.php?opcion=6"); 
+// Redirigimos según el tipo de usuario
+$tipo = $_SESSION['usuario'] ? unserialize($_SESSION['usuario'])['tipo'] : null;
+
+if ($tipo === 'admin') {
+    header("Location: /views/app_admin.php?opcion=5");
+} else {
+
+    header("Location: /views/app_proveedor.php?opcion=1");
+}
 exit();
 
 

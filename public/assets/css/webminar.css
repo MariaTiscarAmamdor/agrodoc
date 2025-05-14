@@ -44,6 +44,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 1%;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
@@ -86,11 +87,13 @@ main {
     margin-top: 30px;
     font-size: 0.95rem;
     color: #555;
-    background-color: #eef8f1;
+    /* background-color: #eef8f1; */
     padding: 15px;
     border-radius: 8px;
     border-left: 5px solid #28784d;
+    border-right: 5px solid #28784d;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
   }

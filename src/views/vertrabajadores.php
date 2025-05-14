@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /views/login.php");
+    header("Location: /app/login");
     exit;
 }
 
@@ -55,7 +55,7 @@ if ($tipo === 'proveedor') {
                 <td class='editable'><?= $trabajador['telefono'] ?></td>
                 <td class='editable'><?= $trabajador['direccion'] ?></td>
                 <td class='editable'><?= $trabajador['documentos'] ? 'Sí' : 'No' ?></td>
-                <td><?= $trabajador['nombre_proveedor'] ?? 'No disponible' ?></td>
+                <td><?= $trabajador['nombre_proveedor']?? 'No disponible' ?> <?=$trabajador['apellidos_proveedor'] ?? 'No disponible' ?></td>
                 <td>
                     <button class="editar">Modificar</button>
                     <button class="guardar" style="display:none;">Guardar</button>

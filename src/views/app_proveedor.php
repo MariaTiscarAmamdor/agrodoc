@@ -23,16 +23,13 @@ $redir = "cargar('#portada','/views/portada.php');";
 if (isset($_GET['opcion'])) {
   switch ($_GET['opcion']) {
     case 1:
-        $redir = "cargar('#portada','/views/verfincas.php?id=$id_proveedor');";
+      $redir = "cargar('#portada','/views/vertrabajadores.php?id=$id_proveedor');";
       break;
     case 2:
         $redir = "cargar('#portada','/views/verproyectos.php?id=$id_proveedor');";
       break;
     case 3:
-        $redir = "cargar('#portada','/views/vertrabajadores.php?id=$id_proveedor');";
-      break;
-    case 4:
-        $redir = "cargar('#portada','/views/vercontratistas.php');";
+      $redir = "cargar('#portada','/views/vertrabajadores_proyecto.php');";
       break;
     default:
       $redir = "cargar('#portada','/views/portada.php');";
@@ -58,11 +55,15 @@ if (isset($_GET['opcion'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/estilos_app_tv.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/estilos_app_proveedor.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/privacidad.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/formulario.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/faq.css">
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
-
+  <!-- script para chat en vivo -->
+  <script src="//code.tidio.co/qoe3mhwmfpdrgnjupiwlei0hkc9cy2ut.js" async></script>
 
 </head>
 
@@ -71,7 +72,7 @@ if (isset($_GET['opcion'])) {
     <!--Cabecera-->
     <header id="principal_header" role="banner">
       <div class="container_logotipo">
-        <a href="/views/app_contratista.php" name="logotipo">
+        <a href="/views/app_proveedor.php" name="logotipo">
           <img src="/assets/img/logotipoAgrodoc.svg" alt="logotipo svg" title="Agrodoc" class="logotipo">
         </a>
       </div>
@@ -87,16 +88,13 @@ if (isset($_GET['opcion'])) {
 
 
   <footer id="footer" role="contentinfo">
-    <div class="contenedor_pie_1">
-      <ul class="enlaces_pie_lista">
-        <li><a href="#" class="enlaces_pie">Quiénes somos</a></li>
-        <li><a href="#" class="enlaces_pie">Ayuda</a></li>
-        <li><a href="#" class="enlaces_pie">Contacto</a></li>
-        <li><a href="#" class="enlaces_pie">Información legal</a></li>
-        <li><a href="#" class="enlaces_pie">Privacidad</a></li>
-        <li><a href="#" class="enlaces_pie">FAQ</a></li>
-      </ul>
-    </div>
+    <div class="footer-links">
+        <a href="javascript:cargar('#portada','/views/contacto.php');" aria-label="Quiénes somos">Quiénes somos</a>
+        <a href="javascript:cargar('#portada','/views/faq.php');" aria-label="FAQ">FAQ</a>
+        <a href="javascript:cargar('#portada','/views/contacto.php');" aria-label="Contacto">Contacto</a>
+        <a href="javascript:cargar('#portada','/views/politica_privacidad.php');" aria-label="Política de privacidad">Política de privacidad</a>
+        <a href="mailto:agrodoc@agrodoc.com" aria-label="Enviar un correo a AgroDoc">Email: agrodoc@agrodoc.com</a>    
+    </div> 
     <div class="contenedor_pie_2">
       © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
     </div>
@@ -115,12 +113,11 @@ if (isset($_GET['opcion'])) {
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/assets/js/cargar.js"></script>
+  <script src="/assets/js/contacto.js"></script>
+  <script src="/assets/js/preguntas.js"></script>
   <script>
     cargar('#barra', '/views/barra_proveedor.php');
-    console.log("➡️ Redirigiendo a:", "<?php echo $redir; ?>");
     <?php echo $redir; ?>
   </script>
-
 </body>
-
 </html>

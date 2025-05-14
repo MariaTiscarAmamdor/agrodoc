@@ -16,7 +16,11 @@ $controller = new ProyecController();
 if ($tipo === 'contratista') {
     $idCont = $usuario['id_cont'];
     $datos = $controller->getProyectosPorContratista($idCont);
-} else {
+} else if($tipo === 'proveedor'){
+    $idProv = $usuario['id_prov'];
+    $datos = $controller->getProyectosPorProveedor($idProv);
+}
+else {
    
     $datos = $controller->getProyectos();
 }
@@ -37,8 +41,10 @@ if ($tipo === 'contratista') {
             <th>Proveedor</th>
             <th>Fecha Inicio</th>
             <th>Fecha Fin</th>            
-            <th>Modificar</th>
-            <th>Eliminar</th>
+            <?php if ($tipo === 'admin' || $tipo === 'contratista'): ?>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            <?php endif; ?>
         </tr>
     </thead>
     <tbody>
@@ -50,23 +56,37 @@ if ($tipo === 'contratista') {
                 <td><?= $proyecto['nombre_proveedor'] ?? 'No disponible' ?></td>
                 <td class='editable'><?= $proyecto['fecha_inicio'] ?></td>
                 <td class='editable'><?= $proyecto['fecha_fin'] ?></td>                
-                <td>
-                    <button class="editar">Modificar</button>
-                    <button class="guardar" style="display:none;">Guardar</button>
-                </td> 
-                <td>
-                    <button class="eliminar" onclick="eliminarProyecto(<?= $proyecto['id_proyec'] ?>)">Eliminar</button>
-                </td>
+                <?php if ($tipo === 'admin' || $tipo === 'contratista'): ?>
+                    <td>
+                        <button class="editar">Modificar</button>
+                        <button class="guardar" style="display:none;">Guardar</button>
+                    </td>
+                    <td>
+                        <button class="eliminar" onclick="eliminarProveedor(<?= $proveedor['id_prov'] ?>)">Eliminar</button>
+                    </td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
-<div class="enlace_crear">
+<?php if ($tipo === 'admin' || $tipo === 'contratista'): ?>
+    <div class="enlace_crear">
     <a href="javascript:cargar('#portada','/views/nuevo_proyec.php');">
-        <button>Crear campaña</button>
-    </a>
-</div>
+        <button>Nueva campaña</button>
+        </a>
+    </div>
+<?php endif; ?>
+
+<?php if ($tipo === 'proveedor'): ?>
+    <div class="enlace_crear">
+        <a href="javascript:cargar('#portada','/views/vertrabajadores_proyecto.php');">
+            <button>Ver trabajadores por campaña</button>
+        </a>
+    </div>
+<?php endif; ?>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/js/proyectos.js"></script>

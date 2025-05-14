@@ -78,17 +78,7 @@ if (isset($_GET['opcion'])) {
   </div>
 
 
-  <footer id="footer" role="contentinfo">
-    <div class="contenedor_pie_1">
-      <ul class="enlaces_pie_lista">
-        <li><a href="#" class="enlaces_pie">Quiénes somos</a></li>
-        <li><a href="#" class="enlaces_pie">Ayuda</a></li>
-        <li><a href="#" class="enlaces_pie">Contacto</a></li>
-        <li><a href="#" class="enlaces_pie">Información legal</a></li>
-        <li><a href="#" class="enlaces_pie">Privacidad</a></li>
-        <li><a href="#" class="enlaces_pie">FAQ</a></li>
-      </ul>
-    </div>
+  <footer id="footer" role="contentinfo"> 
     <div class="contenedor_pie_2">
       © 2025 AGRODOC GLOBAL, S.A. &#45; Todos los derechos reservados.
     </div>
@@ -108,8 +98,7 @@ if (isset($_GET['opcion'])) {
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/assets/js/cargar.js"></script>
   <script>
-    cargar('#barra', '/views/barra_admin.php');
-    console.log("➡️ Redirigiendo a:", "<?php echo $redir; ?>");
+    cargar('#barra', '/views/barra_admin.php');   
     <?php echo $redir; ?>
   </script>
 

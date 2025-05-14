@@ -7,6 +7,8 @@ $(function(){
         
         if(anchura > 767){
             $('#nav').show();
+        }else {
+            $('#nav').hide();
         }
     });
     if(anchura > 992){
